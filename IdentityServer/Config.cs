@@ -25,7 +25,7 @@ public static class Config
                 AllowedGrantTypes = GrantTypes.ClientCredentials,
                 ClientSecrets =
                 {
-                    new Secret("secret".Sha256())
+                    new Secret("secret-value".Sha256())
                 },
                 AllowedScopes = { "PersonAPI" }
             }

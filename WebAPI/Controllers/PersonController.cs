@@ -1,7 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using WebAPI.Models;
 
 namespace WebAPI.Controllers
 {
+    [Route("person")]
+    [Authorize]
     public class PersonController : Controller
     {
         private readonly ILogger<PersonController> _logger;
@@ -11,9 +15,20 @@ namespace WebAPI.Controllers
             _logger = logger;
         }
 
-        public IActionResult Index()
+        [HttpGet]
+        public IActionResult Get()
         {
-            return View();
+            try
+            {
+                return new JsonResult(new Person());
+
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message);
+            }
+
+            return BadRequest();
         }
     }
 }
