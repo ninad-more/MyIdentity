@@ -18,7 +18,14 @@ builder.Services.AddAuthentication("Bearer")
                     ValidateAudience = false
                 };
             });
-
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy("ApiScope", policy =>
+    {
+        policy.RequireAuthenticatedUser();
+        policy.RequireClaim("scope", "PersonAPI");
+    });
+});
 
 
 var app = builder.Build();
@@ -36,6 +43,6 @@ app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
 
-app.MapControllers();
+app.MapControllers().RequireAuthorization("ApiScope");
 
 app.Run();

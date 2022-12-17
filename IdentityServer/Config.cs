@@ -1,4 +1,5 @@
-﻿using Duende.IdentityServer.Models;
+﻿using Duende.IdentityServer;
+using Duende.IdentityServer.Models;
 
 namespace IdentityServer;
 
@@ -22,13 +23,13 @@ public static class Config
         {
             new Client
             {
-                ClientId = "WebClient",
+                ClientId = "ConsoleClient",
                 AllowedGrantTypes = GrantTypes.ClientCredentials,
                 ClientSecrets =
                 {
                     new Secret("secret-value".Sha256())
                 },
                 AllowedScopes = { "PersonAPI" }
-            }
+            }            
         };
 }

@@ -5,7 +5,6 @@ using WebAPI.Models;
 namespace WebAPI.Controllers
 {
     [Route("person")]
-    [Authorize]
     public class PersonController : Controller
     {
         private readonly ILogger<PersonController> _logger;

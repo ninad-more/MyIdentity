@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WebClient.Models
+namespace ConsoleClient.Models
 {
-    internal class Person
+    internal class PersonModel
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
