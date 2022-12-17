@@ -6,7 +6,7 @@ JWT Decoded Token -
 
 
 End result - 
+If valid request then
 
-If valid request then 
 ![image](https://user-images.githubusercontent.com/98230711/208235168-c2696060-64dc-466f-8083-02922141f921.png)
 
