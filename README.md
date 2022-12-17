@@ -1,4 +1,4 @@
-# Basic implementation of identity server.
+# Basic implementation of identity server in .Net 7 application. 
 
 Communcation between client and server through JWT token. 
 
