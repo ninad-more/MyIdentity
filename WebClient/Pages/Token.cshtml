@@ -1,0 +1,14 @@
+﻿@page
+@using Microsoft.AspNetCore.Authentication;
+@model TokenModel
+@{
+    ViewData["Title"] = "Token";
+}
+<h1>@ViewData["Title"]</h1>
+<dl>
+@foreach (var prop in (await HttpContext.AuthenticateAsync()).Properties.Items)
+{
+    <dt>@prop.Key</dt>
+    <dd>@prop.Value</dd>
+}
+</dl>

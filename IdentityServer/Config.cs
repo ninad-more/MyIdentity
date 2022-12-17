@@ -30,6 +30,27 @@ public static class Config
                     new Secret("secret-value".Sha256())
                 },
                 AllowedScopes = { "PersonAPI" }
-            }            
+            },
+            new Client
+            {
+                ClientId = "WebClient",
+                ClientSecrets = { new Secret("secret-value".Sha256()) },
+
+                AllowedGrantTypes = GrantTypes.Code,
+            
+                // redirect to after login
+                RedirectUris = { "https://localhost:7121/signin-oidc" },
+
+                // redirect to after logout
+                PostLogoutRedirectUris = { "https://localhost:7121/signout-callback-oidc" },
+                AllowOfflineAccess = true,
+                AllowedScopes = new List<string>
+                {
+                    IdentityServerConstants.StandardScopes.OpenId,
+                    IdentityServerConstants.StandardScopes.Profile,
+                    IdentityServerConstants.StandardScopes.OfflineAccess,
+                    "PersonAPI",
+                }
+            }
         };
 }
